@@ -1,0 +1,11 @@
+
+Compare two numbers in such a way that : 
+if
+	first number is smaller than second then print
+	lorem
+else
+	first number is larger than second then print
+	dorem
+Note:
+	if numbers are equal then print 
+	ipsum

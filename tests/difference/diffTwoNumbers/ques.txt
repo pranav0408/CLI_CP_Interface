@@ -1,0 +1,7 @@
+
+Find the difference of two numbers such that
+if
+	first numbers is smaller than second then print
+	mod value of their difference 
+else
+	print their original difference

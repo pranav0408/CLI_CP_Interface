@@ -1,0 +1,7 @@
+
+add numbers such that
+if 
+	first number is greater than second then
+	print invalid input
+else
+	print sum of the two
