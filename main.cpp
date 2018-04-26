@@ -120,9 +120,9 @@ void attemptTest(){
   command = "cd "+u+";cd "+testName+";cd "+quesName+";g++ solution.cpp";
   system(command.c_str());
   cout<<endl<<"The output from your program:"<<endl;
-  command = "cd "+u+";cd "+testName+";cd "+quesName+";./a.out";
+  command = "cd "+u+";cd "+testName+";cd "+quesName+";./a.out < ../../../tests/"+testName+"/"+quesName+"/input.txt";
   system(command.c_str());
-  command = "cd "+u+";cd "+testName+";cd "+quesName+";./a.out > compareSol.txt";
+  command = "cd "+u+";cd "+testName+";cd "+quesName+";./a.out < ../../../tests/"+testName+"/"+quesName+"/input.txt  > compareSol.txt";
   system(command.c_str());
   //asigning marks
   fstream adminFile;
@@ -148,7 +148,7 @@ void attemptTest(){
     file.open(path.c_str(),ios::out);
     if(!file) cout<<"Error in final success evaluation"<<endl;
     else file<<"10"<<endl;
-    cout<<endl<<"Congratulation, you scored 10 marks"<<endl;
+    cout<<endl<<"Test Case passed!\nYou scored 10 marks"<<endl;
     file.close();
   }
   else{
@@ -157,13 +157,14 @@ void attemptTest(){
     file.open(path.c_str(),ios::out);
     if(!file) cout<<"Error in final failed evaluation"<<endl;
     else file<<"0"<<endl;
-    cout<<endl<<"You scored 0 marks"<<endl;
+    cout<<endl<<"Test Case failed!\nYou scored 0 marks"<<endl;
     file.close();
   }
            checkUserSession();
 }
 void viewMarks(){
   string test,ques,command;
+  system("clear");
   cout<<endl<<"    These are the tests you have attempted :"<<endl;
     command = "cd "+u+";ls";
     system(command.c_str());
@@ -189,7 +190,7 @@ void checkUserSession(){
   cin>>userChoice;
        if(userChoice==1) attemptTest();
   else if(userChoice==2) viewMarks();
-  else if(userChoice==3) cout<<"Logging you out"<<endl<<endl;
+  else if(userChoice==3) cout<<"Logging you out.."<<endl<<endl;
   else cout<<"\nInvalid option selected\n";
 
 }
@@ -285,7 +286,5 @@ int main(){
             if(session==0) return 0;
             checkAdminSession();
             }
-      else
-            user();
-
+      else user();
 }
